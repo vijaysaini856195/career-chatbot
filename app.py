@@ -8,14 +8,13 @@ try:
     # Load the credentials from the single secret
     creds_json_str = st.secrets["GOOGLE_CREDENTIALS_JSON"]
     creds_dict = json.loads(creds_json_str) # Convert the string to a dictionary
-
+    
     creds = Credentials.from_service_account_info(creds_dict, scopes=[
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive"
     ])
     client = gspread.authorize(creds)
-
-    # Make sure this name matches your Google Sheet name exactly
+    
     spreadsheet = client.open("New Career Chatbot Data")
     worksheet = spreadsheet.sheet1
 except Exception as e:
