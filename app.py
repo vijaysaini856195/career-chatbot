@@ -13,7 +13,7 @@ try:
     ])
     client = gspread.authorize(creds)
 
-    # Open the spreadsheet
+    # Make sure this name matches your Google Sheet name exactly
     spreadsheet = client.open("New Career Chatbot Data")
     worksheet = spreadsheet.sheet1
 except Exception as e:
