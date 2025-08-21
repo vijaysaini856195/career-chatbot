@@ -2,12 +2,14 @@
 import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
+import json
 
 try:
-    # Get credentials from Streamlit Secrets
-    google_creds_dict = st.secrets["gcp_service_account"]
+    # Load the credentials from the single secret
+    creds_json_str = st.secrets["GOOGLE_CREDENTIALS_JSON"]
+    creds_dict = json.loads(creds_json_str) # Convert the string to a dictionary
 
-    creds = Credentials.from_service_account_info(google_creds_dict, scopes=[
+    creds = Credentials.from_service_account_info(creds_dict, scopes=[
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive"
     ])
