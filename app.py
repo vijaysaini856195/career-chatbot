@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 try:
     # Configure the generative AI model
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+    genai.configure(api_key=st.secrets["AIzaSyBYyRMqZ9KwfwsDkwX6-w2KhpLA0T_Kw9o"])
     model = genai.GenerativeModel('gemini-1.5-flash')
 except Exception as e:
     st.error(f"Error configuring the AI model: {e}")
@@ -52,3 +52,4 @@ if prompt := st.chat_input("What are your interests and skills?"):
         worksheet.append_row(new_row)
     except Exception as e:
         st.error(f"Failed to save data to Google Sheets: {e}")
+
