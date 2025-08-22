@@ -60,7 +60,7 @@ except Exception as e:
 
 
 # --- App Logic ---
-st.title("🤖 AI Career Path Recommendation Chatbot by vijay")
+st.title("🤖 AI Career Path Recommendation Chatbot")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -121,3 +121,4 @@ if prompt := st.chat_input("What are your interests and skills?"):
         worksheet.append_row(new_row)
     except Exception as e:
         st.error(f"Failed to save data to Google Sheets: {e}")
+
